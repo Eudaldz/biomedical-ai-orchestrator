@@ -1,0 +1,18 @@
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore logs and temporary files
+logs/
+*.log
+
+# Ignore Docker-related files
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+#Ignore weights files
+.model
+
+nnUNet_results/

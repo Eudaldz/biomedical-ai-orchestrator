@@ -1,0 +1,10 @@
+flask
+numpy>=1.24
+nibabel
+pydicom==2.4.4
+dicom2nifti==2.2.12
+scikit-image>=0.19.3
+python-gdcm==3.0.24.1
+pylibjpeg
+pylibjpeg-libjpeg
+pylibjpeg-openjpeg

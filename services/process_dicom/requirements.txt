@@ -1,0 +1,7 @@
+flask
+pydicom==2.4.4
+numpy>=1.24
+python-gdcm==3.0.24.1
+pylibjpeg
+pylibjpeg-libjpeg
+pylibjpeg-openjpeg

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ORCHESTRATOR By AAA TEAM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        th:hover {
+            background-color: #0056b3;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        progress {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>ORCHESTRATOR By AAA TEAM</h1>
+    <img src="{{ url_for('static', filename='AAAORCH.webp') }}" alt="AAA TEAM Logo" width="150">
+    
+    <!-- Taula que mostrarà les tasques -->
+    <table>
+        <thead>
+            <tr>
+                <th>Task ID</th>
+                <th>Microservice</th>
+                <th>Status</th>
+                <th>Created At</th>
+                <th>Progress</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks.values() %}
+            <tr>
+                <td>{{ task.task_id }}</td>
+                <td>{{ task.microservice }}</td>
+                <td>{{ task.status }}</td>
+                <td>{{ task.created_at }}</td>
+                <td>
+                    <!-- Barra de progrés si la tasca està en procés -->
+                    {% if task.status == 'running' %}
+                    <progress value="{{ task.progress }}" max="100"></progress>
+                    {% else %}
+                    <span>No progress</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

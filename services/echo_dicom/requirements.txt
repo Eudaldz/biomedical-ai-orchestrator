@@ -1,0 +1,2 @@
+flask
+pydicom==2.4.4
