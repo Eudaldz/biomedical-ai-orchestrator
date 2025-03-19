@@ -173,7 +173,7 @@ def index():
 
     <html>
     <head>
-        <title>ORCHESTRATOR By AAA TEAM</title>
+        <title>AI Services Orchestrator - CMR</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -301,9 +301,9 @@ def index():
         </script>
     </head>
     <body>
-        <h1>ORCHESTRATOR By AAA TEAM</h1>
+        <h1>AI Services Orchestrator - CMR</h1>
         <div class="image-container">
-            <img src="{{ url_for('static', filename='AAAORCH.webp') }}" alt="AAAORCH Image" width="200">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="AAAORCH Image" width="200">
         </div>
         <table>
             <thead>
