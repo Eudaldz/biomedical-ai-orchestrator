@@ -51,15 +51,15 @@ project-root/
 
   ```bash
   cd <project-root>
-  git clone <repository-url>
+  git clone https://github.com/Eudaldz/biomedical-ai-orchestrator.git
   ```
 
 - **Windows Setup:**
-  - Install **Docker Desktop** from the official site.
-  - Install **Python** and add it to your system's PATH.
+
+  - Install **Docker Desktop** from the official site: https://www.docker.com/products/docker-desktop/
   - Verify installation:
     ```bash
-    python --version
+    docker --version
     ```
 
 - **Linux Setup:**
@@ -76,14 +76,6 @@ project-root/
     ```bash
     sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
-    ```
-  - Install **Python**:
-    ```bash
-    sudo apt-get install -y python3 python3-pip
-    ```
-  - Verify installation:
-    ```bash
-    python3 --version
     ```
 
 ### 2. Build and Run
@@ -106,6 +98,7 @@ project-root/
 
 - Each microservice has its own **Dockerfile** and runs a **Flask API**.
 - Example **Dockerfile** for a microservice:
+
   ```dockerfile
   FROM python:3.9-slim
   WORKDIR /app
@@ -116,10 +109,11 @@ project-root/
   ```
 
 - Example **Flask API** (`app.py`):
+
   ```python
   from flask import Flask, request, jsonify
   app = Flask(__name__)
-  
+
   @app.route('/predict', methods=['POST'])
   def predict():
       data = request.json
@@ -147,19 +141,19 @@ project-root/
 - Frontend in server.py:
 
   - The server.py file includes a simple frontend built using Flask's templating engine (Jinja2)
-  and static files (HTML, CSS, JavaScript).
+    and static files (HTML, CSS, JavaScript).
 
   - The frontend serves as a user interface to interact with the microservices,
-  displaying results and status updates.
+    displaying results and status updates.
 
   - Static files are stored in the server/static/ directory,
-  and templates are located in server/templates/.
+    and templates are located in server/templates/.
 
 ### 5. Scaling and Deployment
 
 - To scale microservices, modify `docker-compose.yml`:
   ```yaml
-  version: '3.8'
+  version: "3.8"
   services:
     microservice1:
       build: ./services/microservice1
@@ -174,6 +168,7 @@ project-root/
 ### 6. Logging and Health Checks
 
 - Add **structured logging** to microservices:
+
   ```python
   import logging
   logging.basicConfig(level=logging.INFO)
@@ -191,11 +186,9 @@ project-root/
               "microservice": task["microservice"],
               "status": task["status"],
               "ellapsed_time": task.get("ellapsed_time", "pending"),
-              "result": task.get("result", "ok"), 
+              "result": task.get("result", "ok"),
               "created_at": task["created_at"]
           }), 200
       else:
           return jsonify({"error": "Task not found or expired"}), 404
   ```
-
-
