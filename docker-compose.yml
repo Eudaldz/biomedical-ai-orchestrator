@@ -7,7 +7,7 @@ services:
     depends_on:
       - dummy_service
       - process_dicom
-      - vascular_segmentation
+      # - vascular_segmentation
     networks:
       - app-network
     volumes:
