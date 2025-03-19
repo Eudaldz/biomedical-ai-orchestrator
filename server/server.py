@@ -321,8 +321,6 @@ def index():
         </table>
     </body>
     </html>
-
-
     """
     return render_template_string(html_content)
 
